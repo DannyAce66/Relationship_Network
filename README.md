@@ -107,12 +107,39 @@ path = net.find_path("John Smith", "Jane Doe")
 
 ---
 
+
+## Storage Backends / 存储模式
+
+RN supports two storage backends. Both are zero-dependency (SQLite is built into Python).
+RN 支持两种存储模式，都零依赖（SQLite 是 Python 内置的）。
+
+| Feature / 特性 | JSONL (default) | SQLite (`--db`) |
+|------|:--:|:--:|
+| Human-readable file / 人类可读 | ✅ | — |
+| Git-friendly / 可版本控制 | ✅ | — |
+| Fast queries / 查询快 | — | ✅ |
+| Rich relations / 关系查询 | — | ✅ |
+| Stats dashboard / 统计面板 | — | ✅ |
+| Best for / 适合 | < 500 contacts | > 500 contacts |
+
+```bash
+# JSONL mode (default) / JSONL 模式（默认）
+rn add "John Smith,investor,NYC"
+
+# SQLite mode / SQLite 模式
+rn --db add "John Smith,investor,NYC"
+rn --db stats
+```
+
+---
+
 ## Project Structure / 项目结构
 
 ```
 rn/                     ← Python package / Python 包
   __init__.py           ← API exports / API 导出
-  network.py            ← Core engine / 核心模块
+  network.py            ← Core engine (JSONL) / 核心模块
+  database.py           ← SQLite backend / SQLite 引擎
   cli.py                ← CLI tool / 命令行工具
 data/
   sample.jsonl          ← Sample data / 示例数据（fictional / 虚构）

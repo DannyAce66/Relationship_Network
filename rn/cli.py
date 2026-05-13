@@ -270,6 +270,19 @@ def cmd_tagcloud(net: RelationshipNetwork, args: list[str]) -> None:
         print(f"  {tag:20s} {bar} {count}")
 
 
+def cmd_stats(net, args: list[str]) -> None:
+    """显示数据库统计信息 (SQLite 模式)。"""
+    if not hasattr(net, 'stats'):
+        print("stats 命令仅支持 SQLite 模式 (--db)。")
+        print("JSONL 模式请直接查看数据文件: ~/.rn/persons.jsonl")
+        return
+    s = net.stats()
+    print(f"数据库: {s['db_path']}")
+    print(f"联系人数量: {s['person_count']}")
+    print(f"关系数量: {s['relation_count']}")
+    print(f"标签种类: {s['tag_count']}")
+
+
 def main() -> None:
     """命令行入口函数。"""
     parser = argparse.ArgumentParser(
@@ -293,7 +306,12 @@ def main() -> None:
     parser.add_argument(
         "--data",
         default="",
-        help="数据文件路径（默认: ~/.rn/persons.jsonl）",
+        help="JSONL 数据文件路径（默认: ~/.rn/persons.jsonl）",
+    )
+    parser.add_argument(
+        "--db",
+        default="",
+        help="SQLite 数据库路径（默认: ~/.rn/network.db）。使用此参数将切换到 SQLite 模式。",
     )
 
     subparsers = parser.add_subparsers(dest="command", help="子命令")
@@ -311,14 +329,19 @@ def main() -> None:
         ("recommend", "按场景推荐联系人"),
         ("relation", "管理关系网络"),
         ("tagcloud", "显示标签云"),
+        ("stats", "数据库统计信息 (SQLite 模式)"),
     ]:
         sp = subparsers.add_parser(cmd, help=help_text)
 
     # 解析参数
     known, unknown = parser.parse_known_args()
 
-    # 初始化网络
-    net = RelationshipNetwork(data_path=known.data if known.data else None)
+    # 初始化网络 — JSONL 或 SQLite
+    if known.db:
+        from .database import SqliteNetwork
+        net = SqliteNetwork(db_path=known.db if known.db else None)
+    else:
+        net = RelationshipNetwork(data_path=known.data if known.data else None)
 
     # 执行命令
     command_map = {
@@ -330,6 +353,7 @@ def main() -> None:
         "recommend": cmd_recommend,
         "relation": cmd_relation,
         "tagcloud": cmd_tagcloud,
+        "stats": cmd_stats,
     }
 
     if known.command:

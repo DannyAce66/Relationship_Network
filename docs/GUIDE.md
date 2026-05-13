@@ -231,6 +231,66 @@ angel:#investor_type  ← sub-type tag / 子类型标签
 
 ---
 
+## SQLite Mode / SQLite 模式
+
+For larger networks, RN offers a SQLite backend with the same API.
+人脉多的时候，RN 提供 SQLite 模式，API 完全一样。
+
+### Quick comparison / 快速对比
+
+| Feature | JSONL (default) | SQLite (`--db`) |
+|---------|:--:|:--:|
+| Zero setup / 零配置 | ✅ | ✅ |
+| Human-readable file / 人类可读 | ✅ | — |
+| Git-friendly / 版本控制友好 | ✅ | — |
+| Fast queries / 查询快 | — | ✅ |
+| Rich relations / 关系查询 | — | ✅ |
+| Stats dashboard / 统计面板 | — | ✅ |
+| Best for / 适合 | < 500 contacts | > 500 contacts |
+
+### Usage / 使用方法
+
+```bash
+# Switch to SQLite / 切换到 SQLite
+rn --db add "John Smith,investor,NYC,met at TechCrunch"
+rn --db search investor
+rn --db path "John Smith" "Jane Doe"
+rn --db stats
+
+# Default path / 默认路径: ~/.rn/network.db
+# Custom path / 自定义路径:
+rn --db /path/to/my_network.db list
+```
+
+### Python API / Python 库
+
+```python
+from rn import SqliteNetwork, Person, Relationship
+
+net = SqliteNetwork()  # uses ~/.rn/network.db
+# net = SqliteNetwork(db_path="custom.db")
+
+net.add_person(Person("John Smith", tags=["investor", "NYC"]))
+net.add_relation(Relationship("John Smith", "Jane Doe", "coworker"))
+
+print(net.stats())  # {'person_count': 2, 'relation_count': 1, ...}
+```
+
+### Migration / 数据迁移
+
+```python
+# JSONL → SQLite
+from rn import RelationshipNetwork, SqliteNetwork, Person
+
+jsonl = RelationshipNetwork()
+sqlite = SqliteNetwork()
+
+for person in jsonl.list_all():
+    sqlite.add_person(person)
+```
+
+---
+
 ## Relationship Network / 关系网络
 
 ### Direction / 方向

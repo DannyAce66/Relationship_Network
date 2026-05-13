@@ -9,7 +9,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name="rn",
-    version="0.2.0",
+    version="0.3.0",
     description="Relationship Network — A lightweight personal relationship manager. CLI + Python library. Zero dependencies.",
     long_description=long_description,
     long_description_content_type="text/markdown",

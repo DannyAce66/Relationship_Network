@@ -116,9 +116,38 @@ rn/                     ← Python package / Python 包
   cli.py                ← CLI tool / 命令行工具
 data/
   sample.jsonl          ← Sample data / 示例数据（fictional / 虚构）
+skills/
+  AGENTS.md             ← AI Agent integration guide / AI Agent 集成指南
+scripts/
+  install.sh            ← One-click install / 一键安装脚本
 docs/
   GUIDE.md              ← Full tutorial (bilingual) / 完整教程（中英双语）
 ```
+
+### AI Agent Integration / AI Agent 集成
+
+RN can auto-detect names in your chat conversations and prompt you to add them.
+Load `skills/AGENTS.md` into your AI agent (Hermes, OpenClaw, Claw Code):
+
+RN 可以在聊天对话中自动识别人名并提示你录入。将 `skills/AGENTS.md` 加载到你的 AI Agent 中：
+
+```bash
+# Hermes
+cp skills/AGENTS.md ~/.hermes/skills/relationship-network/SKILL.md
+
+# OpenClaw
+cp skills/AGENTS.md /path/to/openclaw/skills/relationship-network/SKILL.md
+
+# One-click setup (all platforms) / 一键配置
+./scripts/install.sh
+```
+
+After setup, your agent will automatically:
+配置后，Agent 会自动：
+
+- 🔍 Search RN whenever a name is mentioned / 对话中提到人名时自动查 RN
+- ❓ Ask to add new contacts / 新人出现时询问是否录入
+- 🔄 Ask to update when new info appears / 发现新信息时询问是否更新
 
 ---
 

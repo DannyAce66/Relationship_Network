@@ -9,12 +9,12 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name="rn",
-    version="0.1.0",
-    description="Relationship Network - 轻量级个人人脉管理工具",
+    version="0.2.0",
+    description="Relationship Network — A lightweight personal relationship manager. CLI + Python library. Zero dependencies.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="Relationship Network Team",
-    url="https://github.com/your-username/Relationship_Network",
+    author="DannyAce66",
+    url="https://github.com/DannyAce66/Relationship_Network",
     packages=find_packages(),
     python_requires=">=3.8",
     install_requires=[],

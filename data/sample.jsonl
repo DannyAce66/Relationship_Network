@@ -1,0 +1,10 @@
+{"name": "张三", "nickname": "三哥", "tags": ["投资人", "深圳:#location", "天使投资"], "bio": "专注早期科技项目投资", "met_how": "2024深圳创业者大会", "relationship": "投资顾问", "notes": "每月第一个周五有空"}
+{"name": "李四", "nickname": "小李", "tags": ["设计师", "北京:#location", "UI/UX"], "bio": "资深产品设计师，曾任职字节跳动", "met_how": "通过王五介绍", "relationship": "前同事", "notes": "正在找新的设计机会"}
+{"name": "王五", "nickname": "老王", "tags": ["创业者", "北京:#location", "SaaS"], "bio": "连续创业者，现做企业服务SaaS", "met_how": "朋友聚会认识", "relationship": "合作伙伴", "notes": "公司刚完成A轮融资"}
+{"name": "赵六", "nickname": "六爷", "tags": ["律师", "上海:#location", "公司法"], "bio": "红圈所合伙人，专攻公司并购", "met_how": "通过张三介绍", "relationship": "法律顾问", "notes": "收费合理，响应快"}
+{"name": "刘七", "nickname": "七七", "tags": ["投资人", "上海:#location", "消费投资"], "bio": "关注消费赛道，主投A轮", "met_how": "行业峰会", "relationship": "同行", "notes": "喜欢打高尔夫"}
+{"name": "陈八", "nickname": "小陈", "tags": ["工程师", "深圳:#location", "后端开发", "Go语言"], "bio": "资深后端架构师", "met_how": "技术社区活动", "relationship": "前同事", "notes": "技术能力强，靠谱"}
+{"name": "周九", "nickname": "九哥", "tags": ["创业者", "杭州:#location", "电商"], "bio": "跨境电商创业者，年营收过亿", "met_how": "阿里校友会", "relationship": "校友", "notes": "对东南亚市场很了解"}
+{"name": "吴十", "nickname": "十姐", "tags": ["市场营销", "广州:#location", "品牌公关"], "bio": "曾在头部4A公司负责品牌策略", "met_how": "营销人俱乐部", "relationship": "朋友", "notes": "人脉很广"}
+{"name": "郑十一", "nickname": "十一", "tags": ["投资人", "深圳:#location", "医药投资"], "bio": "生物医药方向投资人，博士学历", "met_how": "通过张三认识", "relationship": "合作伙伴", "notes": "正在看创新药项目"}
+{"name": "冯十二", "nickname": "十二少", "tags": ["媒体人", "北京:#location", "科技媒体"], "bio": "科技媒体主编，采访过上百位创始人", "met_how": "发布会认识", "relationship": "媒体朋友", "notes": "可以帮助对接媒体资源"}

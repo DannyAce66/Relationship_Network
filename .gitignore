@@ -1,0 +1,23 @@
+# Claw Code local artifacts
+.claw/
+.claw.json
+.clawd-todos.json
+CLAUDE.md
+SPEC.md
+
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Real user data (never commit real contacts!)
+*.jsonl
+!data/sample.jsonl
+!data/sample_relations.jsonl
+
+# OS files
+.DS_Store
+Thumbs.db

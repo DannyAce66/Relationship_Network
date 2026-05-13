@@ -1,0 +1,5 @@
+此目录用于存储人脉数据文件。
+
+- sample.jsonl: 示例联系人数据（10条虚构人物）
+- sample_relations.jsonl: 示例关系数据
+- 您可以通过 `rn --data <路径>` 指定自己的数据文件
